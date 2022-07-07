@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+		<property name="connection.username">user1</property>
+		<property name="connection.password">1234</property>
+
+		<property name="show_sql">true</property>
+		<property name="fomat_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.Oracle12cDialect</property>
+
+		<!-- mapping files names -->
+		<mapping class="com.nt.entity.Product"/>
+
+	</session-factory>
+</hibernate-configuration>

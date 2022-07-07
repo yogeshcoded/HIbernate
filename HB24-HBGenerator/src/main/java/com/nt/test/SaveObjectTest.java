@@ -17,16 +17,15 @@ public class SaveObjectTest {
 		// create session object
 		Session sec = HBUtil.getSession();
 		Transaction tx = null;
-		try (sec; factory) {
-			for (int i = 0; i < 5; i++) {
-
+		try  {
+			
 				// being transaction
 				tx = sec.beginTransaction();
 				// prepare entity object
 				Product pr = new Product();
 				// set values
 				// pr.setPid(102);
-				pr.setPname("doors");
+				pr.setPname("doorsg");
 				pr.setPrice(1800);
 				pr.setQty(15);
 
@@ -35,13 +34,16 @@ public class SaveObjectTest {
 				tx.commit();
 				System.out.println("id is::" + IdVal);
 				System.out.println("object is saved");
-			}
+			
 		} // try
 		catch (HibernateException he) {
 			he.printStackTrace();
 			tx.rollback();
 			System.out.println("object is not saved");
 		} // catch
-
+         finally {
+			sec.close();
+			factory.close();
+		}
 	}// main
 }// class
