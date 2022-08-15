@@ -9,7 +9,7 @@ import com.nt.entity.JobDetails;
 import com.nt.entity.Person;
 import com.nt.utility.HBUtil;
 
-public class CompositionMappaingTesting {
+public class CompositionMappaingInserting {
 	public static void main(String[] args) {
 		SessionFactory factory = HBUtil.getSessionFactory();
 		Session sec = HBUtil.getSession();

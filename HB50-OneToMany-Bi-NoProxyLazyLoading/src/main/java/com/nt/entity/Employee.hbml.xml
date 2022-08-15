@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+     <hibernate-mapping>
+    <class name="com.nt.entity.Employee" table="BI_OTM_EMPLOYEE">
+    <id name="empNo">
+    <generator class="sequence">
+    <param name="sequence_name">E_SEQ</param>
+    <param name="initial_value">101</param>
+    <param name="increment_size">1</param>
+    </generator>
+    </id>
+    <property name="empName"/>
+    <property name="empSalary"/>
+    
+    <many-to-one name="dept" class="com.nt.entity.Department" 
+                          column="DEPT_ID" cascade="all" lazy="no-proxy" ></many-to-one>
+        </class>
+        </hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.nt.entity.PersonDetails" table="PERSON_DETAILS_COL" >
+<id name="pid" column="PID">
+<generator class="increment"/>
+</id>
+      <property name="pname" column="PNAME"/>
+      <property name="paddrs" column="PADDRS"/>
+
+<list name="nickNames" table="NICKNAMES_COL">
+<key column="PERSON_ID"/>
+<index column="INDX" type="int"/>
+<element column="NICKNAMES" type="string"/>
+</list>
+
+<bag name="friends" table="FRIENDS_COL">
+<key column="PERSON_ID"/>
+<element column="FRIENDS" type="string"/>
+</bag>
+
+<set name="contactNo" table="CONTACTNO_COL">
+<key column="PERSON_ID"/>
+<element column="CONTACTNO" type="long"/>
+</set>
+
+<map name="idDetails" table="ID_DETAILS_COL">
+<key column="PERSON_ID"/>
+<index column="IDTYPE" type="string"/>
+<element column="IDNUMBER" type="long"/>
+</map> 
+
+</class>
+
+</hibernate-mapping>
